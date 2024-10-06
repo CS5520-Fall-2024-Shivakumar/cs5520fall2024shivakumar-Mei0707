@@ -30,9 +30,6 @@ public class QuickCalActivity extends AppCompatActivity {
 
         binding.setLifecycleOwner(this);
 
-
-
-
         //get data passed from main activity
         Intent intent = getIntent();
         String value = intent.getStringExtra("key"); //if it's a string you stored.
@@ -84,19 +81,64 @@ public class QuickCalActivity extends AppCompatActivity {
 
     void appendText(QuickCalViewModel viewModel, String str) {
         String text = viewModel.getText().get();
-        if ("CALC".equals(text)) {
+        if ("CALC".equals(text) || "Invalid Expression".equals(text)) {
             text = "";
         }
         viewModel.setText(text + str);
     }
 
     void eval(QuickCalViewModel viewModel) {
+        String expression = viewModel.getText().get();
+        assert expression != null;
+        char[] chars = new char[expression.length()];
+        expression.getChars(0, expression.length(), chars, 0);
 
+        int a = 0;
+        int b = 0;
+        int operation = 1;
+        boolean isLastOperation = true;
+        for (int i = 0; i < expression.length(); i++) {
+            if (chars[i] == ' ') {
+                continue;
+            }
+
+            if (chars[i] != '+' && chars[i] != '-') {
+                b = b * 10 + chars[i] - '0';
+                isLastOperation = false;
+            }
+            else {
+                if (isLastOperation) {
+                    viewModel.setText("Invalid Expression");
+                    return;
+                }
+                a = a + operation * b;
+                b = 0;
+                isLastOperation = true;
+                if (chars[i] == '+') {
+                    operation = 1;
+                } else {
+                    operation = -1;
+                }
+            }
+        }
+
+        if (isLastOperation) {
+            viewModel.setText("Invalid Expression");
+            return;
+        }
+
+        int res = a + operation * b;
+        viewModel.setText(Integer.toString(res));
     }
 
     void deleteLastCharacter(QuickCalViewModel viewModel) {
         String text = viewModel.getText().get();
         assert text != null;
-        viewModel.setText(text.substring(0, text.length() - 1));
+        if (text.charAt(text.length() - 1) == ' ') {
+            viewModel.setText(text.substring(0, text.length() - 3));
+        }
+        else {
+            viewModel.setText(text.substring(0, text.length() - 1));
+        }
     }
 }
