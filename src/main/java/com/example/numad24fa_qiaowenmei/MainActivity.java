@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 "Qiaowen Mei\nmqiaowen@gmail.com", Toast.LENGTH_LONG).show());
 
         Button quickCalButton = new Button(this);
-        quickCalButton.setText("Quick");
+        quickCalButton.setText("Quick Calculator");
 
         quickCalButton.setOnClickListener(v -> {
             Intent myIntent = new Intent(MainActivity.this, QuickCalActivity.class);
