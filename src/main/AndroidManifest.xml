@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuickCalActivity"/>
+        <activity android:name=".ContactActivity"/>
+        <activity android:name=".ContactDetails"/>
+        <activity android:name=".AddEditContact"/>
 
     </application>
 

@@ -43,7 +43,10 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.runtime.android)
     implementation(libs.lifecycle.viewmodel.android)
+    implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.material.v140)
+
 }

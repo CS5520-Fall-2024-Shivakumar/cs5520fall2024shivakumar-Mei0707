@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEditContact">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:padding="10dp">
+
+
+        <!-- EditText for name input -->
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="5dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorPrimary" />
+
+        <!-- EditText for phone input -->
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:textColorHint="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="5dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+    <!-- Floating Action Button for saving contact -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        app:backgroundTint="@color/colorTextPrimary"
+        app:tint="@color/white"
+        android:elevation="5dp"
+        app:pressedTranslationZ="10dp"
+        android:contentDescription="Add Contact" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/colorTextPrimary"
+        android:textColor="@color/white"/>
+
+    <!-- Button for deleting contact -->
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_below="@id/buttonSave"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@color/white"
+        android:visibility="gone"/> <!-- Initially hidden -->
+
+</RelativeLayout>

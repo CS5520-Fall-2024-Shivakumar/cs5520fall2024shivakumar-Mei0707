@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
+    tools:context=".ContactDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Jowel Ahmed"
+            android:textColor="@color/colorTextSecondary"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:stretchColumns="2">
+            <TableRow>
+                <TextView
+                    android:text="Phone"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTextPrimary"/>
+                <TextView
+                    android:id="@+id/phoneTv"
+                    tools:text="0177000800"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/colorTextSecondary"/>
+            </TableRow>
+
+
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>
